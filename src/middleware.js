@@ -3,23 +3,24 @@ import  { NextRequest } from "next/server";
 
 
 export function middleware(){
-    const path = NextRequest.nextUrl.pathname
+    const path = NextRequest.nextUrl?.pathname
 
-    const isPublicPath = path === '/login' || path === '/signup'
+ const isPublicPath = path === '/login' || path === '/signup'
 
-    const token = NextRequest.cookies.get('token')
-    if(NextRequest.nextUrl.pathname === '/login' || NextRequest.nextUrl.pathname === "/signup" || token){
-        const url = NextRequest.nextUrl.clone()
+    const token = NextRequest.cookies?.get('token')?.value
+
+    if(isPublicPath|| token){
+        const url = NextRequest.nextUrl?.clone()
         url.pathname = "/"
 
         return NextResponse.redirect(url)
     }
 
     else{
-        const url = NextRequest.nextUrl.clone()
-        url.pathname = "/login"
+       // const url = NextRequest.nextUrl?.clone()
+       // url.pathname = "/login"
 
-        return NextResponse.redirect(url)
+       // return NextResponse.redirect(url)
     }
 
     // see Matching paths
