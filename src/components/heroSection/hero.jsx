@@ -15,8 +15,9 @@ function HeroSection() {
                 <h1 class="text-center text-3xl text-bold">Give Loves, <br/>Spread the Goodness</h1>
                 <p class="text-center mt-4">The world crowdfunding platform that <br/> implements Open Data technology for more <br/> transparent transactions</p>
              
-             <div>
+             <div class="flex justify-center items-center gap-3">
               <button>Get Started</button>
+              <button>Learn More</button>
              </div>
               </div>
                 
